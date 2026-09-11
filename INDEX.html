@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Haven - Online Book Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f7f4ef;
+            color: #333;
+        }
+
+        /* Navbar */
+        header {
+            background-color: #4b2e20;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #f5c16c;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: #ead8c0;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            color: #4b2e20;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            width: 90%;
+            max-width: 500px;
+            padding: 14px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        /* Books Section */
+        .books {
+            padding: 50px 8%;
+        }
+
+        .books h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 35px;
+            color: #4b2e20;
+        }
+
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .book-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .book-cover {
+            height: 220px;
+            background: #d6b98c;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4b2e20;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .book-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .author {
+            color: #777;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #b05a30;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #4b2e20;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #6b4530;
+        }
+
+        /* Footer */
+        footer {
+            background: #4b2e20;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">📚 Book Haven</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#books">Books</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Discover Your Next Great Book</h1>
+        <p>Explore our collection of amazing books for every reader.</p>
+
+        <input
+            type="text"
+            class="search-box"
+            placeholder="Search for a book..."
+        >
+    </section>
+
+    <section class="books" id="books">
+        <h2>Featured Books</h2>
+
+        <div class="book-container">
+
+            <div class="book-card">
+                <div class="book-cover">THE<br>ALCHEMIST</div>
+                <h3>The Alchemist</h3>
+                <p class="author">Paulo Coelho</p>
+                <p class="price">₹399</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover">ATOMIC<br>HABITS</div>
+                <h3>Atomic Habits</h3>
+                <p class="author">James Clear</p>
+                <p class="price">₹499</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover">IKIGAI</div>
+                <h3>Ikigai</h3>
+                <p class="author">Héctor García</p>
+                <p class="price">₹299</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="book-card">
+                <div class="book-cover">THE<br>PSYCHOLOGY<br>OF MONEY</div>
+                <h3>The Psychology of Money</h3>
+                <p class="author">Morgan Housel</p>
+                <p class="price">₹450</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Book Haven. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
