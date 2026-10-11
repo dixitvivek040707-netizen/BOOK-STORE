@@ -1,0 +1,26 @@
+'use strict';
+const fs = require('fs');
+const path = require('path');
+const root = __dirname;
+const checks = [];
+const add = (name, ok, note) => checks.push({ name, ok, note });
+const read = p => fs.readFileSync(path.join(root, p), 'utf8');
+const server = read('server.js');
+const pkg = JSON.parse(read('package.json'));
+add('Node.js version requirement is 18+', parseInt((pkg.engines && pkg.engines.node || '0').replace(/^[^0-9]*/, ''), 10) >= 18, 'Required for supported runtime.');
+add('No third-party runtime dependencies', Object.keys(pkg.dependencies || {}).length === 0, 'Review dependencies before adding any package.');
+add('Security headers configured', server.includes('Content-Security-Policy') && server.includes('X-Content-Type-Options') && server.includes('X-Frame-Options'), 'CSP, MIME sniffing and framing controls.');
+add('No wildcard CORS policy', !server.includes("'Access-Control-Allow-Origin':'*'") && !server.includes('Access-Control-Allow-Origin: *'), 'API does not opt into cross-origin access.');
+add('Admin API requires a session', server.includes('getSession(req)') && server.includes('Admin authentication required.'), 'Admin endpoints are session-protected.');
+add('Admin login password is environment-configured', server.includes('process.env.ADMIN_PASSWORD') && server.includes('timingSafeEqual'), 'Set a unique ADMIN_PASSWORD of at least 14 characters.');
+add('Request size limit exists', server.includes('32 * 1024'), 'JSON request bodies are limited to 32 KiB.');
+add('Rate limiting exists', server.includes('function rateLimit') && server.includes('admin-login'), 'In-memory limits are for local/demo use only.');
+add('Server-side checkout validation exists', server.includes('validEmail') && server.includes('Number.isSafeInteger(qty)'), 'Checks customer data and quantities server-side.');
+add('Secrets/env files ignored by Git', fs.existsSync(path.join(root, '.gitignore')) && read('.gitignore').includes('.env'), 'Keep .env and real secrets out of source control.');
+add('No environment file with real secrets in project root', !fs.existsSync(path.join(root, '.env')), 'Do not put real secrets in the ZIP or repository.');
+let failed = 0;
+console.log('\nEnginuity Books - local security checklist\n');
+for (const c of checks) { console.log(`${c.ok ? 'PASS' : 'CHECK'}  ${c.name}\n      ${c.note}`); if (!c.ok) failed++; }
+console.log(`\n${checks.length - failed}/${checks.length} checks passed.`);
+console.log('Note: this is a static checklist, not a penetration test or production security certification.');
+process.exitCode = failed ? 1 : 0;
