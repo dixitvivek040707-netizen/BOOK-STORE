@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"><title>Cart</title><link rel="stylesheet" href="style.css">
+ <script>
+  function updateCart() {
+   var rows = document.querySelectorAll("tr.item");
+   var total = 0;
+   for (var i = 0; i < rows.length; i++) {
+    var price = parseFloat(rows[i].getAttribute("data-price"));
+    var qty = parseInt(rows[i].querySelector("input").value, 10) || 0;
+    var amount = price * qty;
+    rows[i].querySelector(".amount").textContent = "$" + amount.toFixed(2);
+    total += amount;
+   }
+   document.getElementById("total").textContent = "$" + total.toFixed(2);
+  }
+  window.onload = updateCart;
+ </script>
+</head>
+<body>
+ <div class="content">
+  <h2>Your Cart</h2>
+  <table class="books">
+   <tr><th>Book name</th><th>Price</th><th>Quantity</th><th>Amount</th></tr>
+   <tr class="item" data-price="35.5"><td>Java 2</td><td>$35.5</td>
+    <td><input type="number" min="0" value="2" style="width:50px" oninput="updateCart()"></td><td class="amount"></td></tr>
+   <tr class="item" data-price="40.5"><td>XML Bible</td><td>$40.5</td>
+    <td><input type="number" min="0" value="1" style="width:50px" oninput="updateCart()"></td><td class="amount"></td></tr>
+   <tr><td colspan="3"><b>Total amount</b></td><td id="total"><b></b></td></tr>
+  </table>
+ </div>
+</body>
+</html>
