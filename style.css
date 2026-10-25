@@ -1,0 +1,28 @@
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#222;margin:0;background:#fff}
+a{color:#7a3e00;text-decoration:none}a:hover{text-decoration:underline}
+.header{width:100%;border-collapse:collapse;background:#f8c18c}
+.header td{border:1px solid #555;padding:6px 10px}
+.header .logo{width:120px;text-align:center;font-weight:bold}
+.header .sitename{text-align:center;font-size:22px;font-weight:bold}
+.header .sitename small{display:block;font-size:13px;font-weight:normal;margin-top:2px}
+.navbar{width:100%;border-collapse:collapse;background:#fde3cc}
+.navbar td{border:1px solid #555;text-align:center;padding:7px}
+.navbar a{display:block;font-weight:bold}
+.menu{background:#fff7ef;padding:12px}
+.menu a{display:block;padding:10px 4px;font-weight:bold;border-bottom:1px solid #e5cdb5}
+.content{padding:16px 24px;line-height:1.5}
+.content h2{margin-top:0;font-size:20px}
+table.books{border-collapse:collapse;width:100%}
+table.books th,table.books td{border:1px solid #999;padding:8px;vertical-align:middle}
+table.books th{background:#fde3cc;text-align:left}
+.cover{width:70px;height:95px;display:block}
+.price{font-weight:bold;white-space:nowrap}
+.btn{background:#f2a93b;border:1px solid #b97612;border-radius:4px;padding:6px 14px;font-weight:bold;cursor:pointer;color:#222}
+.btn:hover{background:#e59a28}
+.btn-plain{background:#fff;border:1px solid #555;border-radius:4px;padding:6px 18px;cursor:pointer}
+.form-box{margin:0 auto}
+.form-box td{padding:6px 8px;vertical-align:top}
+.form-box input[type=text],.form-box input[type=password],.form-box textarea{width:220px;padding:4px;border:1px solid #333}
+.center{text-align:center}
+.err{color:#b42318;font-size:12px;display:block;min-height:14px}
+.ok{color:#14663a;font-weight:bold;margin-top:10px}

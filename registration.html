@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Registration</title><link rel="stylesheet" href="style.css"><script src="validate.js"></script></head>
+<body>
+ <div class="content">
+  <h2>Registration Form</h2>
+  <form name="regForm" action="#" onsubmit="return validateForm()" onreset="clearMessages()">
+   <table class="form-box">
+    <tr><td>Name</td><td><input type="text" id="name" name="name"><span class="err" id="nameErr"></span></td></tr>
+    <tr><td>Password</td><td><input type="password" id="password" name="password"><span class="err" id="passwordErr"></span></td></tr>
+    <tr><td>E-mail id</td><td><input type="text" id="email" name="email"><span class="err" id="emailErr"></span></td></tr>
+    <tr><td>Phone Number</td><td><input type="text" id="phone" name="phone"><span class="err" id="phoneErr"></span></td></tr>
+    <tr><td>Sex</td><td>
+     <input type="radio" name="sex" value="Male" id="male"> <label for="male">Male</label>
+     <input type="radio" name="sex" value="Female" id="female"> <label for="female">Female</label>
+     <input type="radio" name="sex" value="Other" id="other"> <label for="other">Other</label></td></tr>
+    <tr><td>Date of Birth</td><td>
+     <select id="day" name="day"><option value="">Day</option></select>
+     <select id="month" name="month"><option value="">Month</option></select>
+     <select id="year" name="year"><option value="">Year</option></select></td></tr>
+    <tr><td>Languages Known</td><td>
+     <input type="checkbox" name="lang" value="English" checked> English
+     <input type="checkbox" name="lang" value="Telugu"> Telugu
+     <input type="checkbox" name="lang" value="Hindi"> Hindi
+     <input type="checkbox" name="lang" value="Tamil"> Tamil</td></tr>
+    <tr><td>Address</td><td><textarea name="address" rows="3" cols="30"></textarea></td></tr>
+    <tr><td colspan="2" class="center">
+     <input type="submit" value="Submit" class="btn-plain">
+     <input type="reset" value="Reset" class="btn-plain">
+     <div class="ok" id="result"></div></td></tr>
+   </table>
+  </form>
+ </div>
+</body>
+</html>
